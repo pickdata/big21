@@ -69,7 +69,7 @@ public class SitemeshConfig {
 				System.out.println("######################");
 			}
 		});
-		filter.setUrlPatterns(Arrays.asList("/pickdata/*"));
+		filter.setUrlPatterns(Arrays.asList("/credits/*"));
 		
 		return filter;
 	}
