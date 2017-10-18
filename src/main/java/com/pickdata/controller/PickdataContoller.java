@@ -44,5 +44,15 @@ public class PickdataContoller {
 		return "thymeleaf/credits/list";
 	}
 	
+	   @GetMapping("/simulation")
+	   public String simulationGET(@ModelAttribute("vo")CreditDO vo ){
+	      log.info("simulation get");
+	      
+//	      vo.setId(1);
+//	      vo.setResult(0);
+//	      vo.setScore(100.000000000);
+	      
+	      return "thymeleaf/credits/simulation";
+	   }
 
 }
