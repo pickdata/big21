@@ -14,6 +14,7 @@ import lombok.Data;
 public class CreditDO {
 
 	@Id
+	private Integer bno;
 	private Integer id;
 	private Integer result;
 	private BigDecimal score;
