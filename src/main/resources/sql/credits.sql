@@ -8,4 +8,4 @@ CREATE TABLE credits
 );
 
 load data local infile 'test_set.csv' 
-into table credits fields terminated by ",";
+into table tbl_credits fields terminated by ",";

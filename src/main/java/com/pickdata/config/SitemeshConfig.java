@@ -19,23 +19,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SitemeshConfig {
 
-	@Bean
-	FilterRegistrationBean<ConfigurableSiteMeshFilter> siteMeshFilter(){
-		FilterRegistrationBean<ConfigurableSiteMeshFilter> filter = 
-				new FilterRegistrationBean<>();
-		
-		filter.setFilter(new ConfigurableSiteMeshFilter() {
-			@Override
-			protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
-				builder.addDecoratorPaths("/credits/*", "/WEB-INF/decorators/credits.jsp");
-				builder.addDecoratorPaths("/bootstrap/*", "/WEB-INF/decorators/bootstrap.jsp");
-			}
-		});
-		
-		filter.setUrlPatterns(Arrays.asList("/credits/*", "/bootstrap/*"));
-		
-		return filter;
-	}
+//	@Bean
+//	FilterRegistrationBean<ConfigurableSiteMeshFilter> siteMeshFilter(){
+//		FilterRegistrationBean<ConfigurableSiteMeshFilter> filter = 
+//				new FilterRegistrationBean<>();
+//		
+//		filter.setFilter(new ConfigurableSiteMeshFilter() {
+//			@Override
+//			protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
+////				builder.addDecoratorPaths("/credits/*", "../resource/layout/credits.html");
+////				builder.addDecoratorPaths("/credits/*", "/WEB-INF/decorators/credits.jsp");
+////				builder.addDecoratorPaths("/bootstrap/*", "/WEB-INF/decorators/bootstrap.jsp");
+//			}
+//		});
+//		
+//		filter.setUrlPatterns(Arrays.asList("/credits/*", "/bootstrap/*"));
+//		
+//		return filter;
+//	}
 	
 	@Bean
 	FilterRegistrationBean<Filter> testFilter() {
