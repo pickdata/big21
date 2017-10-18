@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Pickdata Sitemesh</title>
+<link rel="stylesheet" href="../thymeleaf/css/bootstrap.css" th:remove="all">
+</head>
+<body>
+<body class="container">
+
+	<div style="text-align:center">
+		<h1> Pickdata 대출 상환 예측 </h1>
+	</div>
+	<hr>
+
+	<div class="panel panel-default" layout:fragment="content">
+		<div class="panel-body">Web Board List Page</div>
+	</div>
+	<!-- custom javascript  -->
+	<th:block layout:fragment="script">	<!-- 오버라이트개념 -->
+	</th:block>
+
+</body>
+</html>
