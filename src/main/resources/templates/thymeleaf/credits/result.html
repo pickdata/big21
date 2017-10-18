@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/credits}">
+
+<head>
+<title>list.html</title>
+<!-- <meta charset="utf-8"> -->
+<!--/*/ 
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.css">
+<link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.css">
+<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript" src="/webjars/chartjs/2.6.0/Chart.bundle.js"></script>
+/*/-->
+<link rel="stylesheet" href="../css/bootstrap.css" th:remove="all">
+<link rel="stylesheet" href="../css/animate.css" th:remove="all">
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="panel-heading">result</div>
+
+	<div class="panel-body">
+		<div>
+			<h1>시뮬레이션 결과</h1>
+			<h4>-입력된 데이터를 기존 시나리오 ...</h4>
+			<table border="1">
+				<tr>
+					<th>Score</th>
+					<th>예상결과</th>
+				</tr>
+				<tr>
+					<td>99999</td>
+					<td>연체</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			 <a class="label label-default" th:href="@{list}">전체 리스트</a><a class="label label-default" th:href="@{simulation}">상환 예측</a>
+		</div>
+	</div>
+
+</div>
+</body>

@@ -23,15 +23,15 @@ public interface PickdataRepository extends JpaRepository<CreditDO, Integer>, Qu
 		
 		switch(type){
 		
-		case "id":
+		case "i":
 			builder.and(credit.id.like("%" + keyword +"%"));
 			break;
 
-		case "result":
+		case "r":
 			builder.and(credit.result.like("%" + keyword +"%"));
 			break;
 			
-		case "score":
+		case "s":
 			builder.and(credit.score.like("%" + keyword +"%"));
 			break;
 		}

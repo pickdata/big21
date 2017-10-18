@@ -99,7 +99,7 @@ public class PickdataContoller {
 	public String result(Integer bno, @ModelAttribute("pageVO") PageVO vo, Model model){
 		
 		log.info("result BNO: "+ bno);
-		repo.findById(bno).ifPresent(creditDO -> model.addAttribute("vo", creditDO));
+//		repo.findById(bno).ifPresent(creditDO -> model.addAttribute("vo", creditDO));
 		
 		return "thymeleaf/credits/result";
 	}

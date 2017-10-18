@@ -1,3 +1,5 @@
+USE world;
+
 DROP TABLE credits;
 
 CREATE TABLE credits
