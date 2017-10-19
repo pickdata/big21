@@ -125,7 +125,7 @@ public class PickdataContoller {
 			double score = bt.score(columnName[i], customerValue);
 			totalScore += score;
 		}
-		if(totalScore > bt.getPdo()){
+		if(totalScore > new Double(36.1)){
 			judgement = true;
 		}
 		
