@@ -36,10 +36,13 @@
 			</thead>
 			<tbody>
 				<tr class="odd gradeX" th:each="credit:${result.content}">
-					<td>[[${credit.bno}]]
-					<td>[[${credit.id}]]</td>
-					<td>[[${credit.score}]]</td>
-					<td>[[${credit.target}]]</td>
+					<td th:text="${credit.bno}"></td>
+					<td th:text="${credit.id}"></td>
+					<td th:text="${credit.score}"></td>
+					<td>
+						<p th:if="${credit.target == 1}" style="color: red;">연체</p>
+						<p th:unless="${credit.target == 1}">미연체</p>
+					</td>
 				</tr>
 			</tbody>
 		</table>
