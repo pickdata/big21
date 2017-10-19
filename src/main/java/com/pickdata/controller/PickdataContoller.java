@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pickdata.domain.CreditDO;
+import com.pickdata.domain.Manager;
 import com.pickdata.page.PageMaker;
 import com.pickdata.page.PageVO;
+import com.pickdata.persistence.ManagerRepository;
 import com.pickdata.persistence.PickdataRepository;
 import com.querydsl.core.types.Predicate;
 
@@ -26,6 +28,7 @@ public class PickdataContoller {
 
 	@Autowired
 	private PickdataRepository repo;
+	private ManagerRepository repo2;
 
 	/*
 	 * list.html
@@ -102,6 +105,19 @@ public class PickdataContoller {
 //		repo.findById(bno).ifPresent(creditDO -> model.addAttribute("vo", creditDO));
 		
 		return "thymeleaf/credits/result";
+	}
+	
+	/*
+	 * login
+	 * yoon
+	 */
+	@GetMapping("/login")
+	public String login(@ModelAttribute("manager") Manager vo){
+		
+		log.info("login page ...");
+
+		repo2.save(vo);
+		return "thymeleaf/credits/login";
 	}
 	
 }
