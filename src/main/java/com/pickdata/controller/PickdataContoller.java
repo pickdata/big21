@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mysql.fabric.xmlrpc.base.Array;
 import com.pickdata.beta.Beta;
 import com.pickdata.columns.ColumnList;
 import com.pickdata.domain.CreditDO;
