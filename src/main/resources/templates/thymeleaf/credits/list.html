@@ -28,6 +28,7 @@
 			id="dataTable">
 			<thead>
 				<tr>
+					<th>BNO</th>
 					<th>ID</th>
 					<th>SCORE</th>
 					<th>TARGET</th>
@@ -35,6 +36,7 @@
 			</thead>
 			<tbody>
 				<tr class="odd gradeX" th:each="credit:${result.content}">
+					<td>[[${credit.bno}]]</td>
 					<td>[[${credit.id}]]</td>
 					<td>[[${credit.score}]]</td>
 					<td>[[${credit.target}]]</td>
