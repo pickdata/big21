@@ -28,7 +28,7 @@ public interface PickdataRepository extends JpaRepository<CreditDO, Integer>, Qu
 			break;
 
 		case "r":
-			builder.and(credit.result.like("%" + keyword +"%"));
+			builder.and(credit.target.like("%" + keyword +"%"));
 			break;
 			
 		case "s":

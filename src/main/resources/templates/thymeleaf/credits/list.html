@@ -37,7 +37,7 @@
 				<tr class="odd gradeX" th:each="credit:${result.content}">
 					<td>[[${credit.id}]]</td>
 					<td>[[${credit.score}]]</td>
-					<td>[[${credit.result}]]</td>
+					<td>[[${credit.target}]]</td>
 				</tr>
 			</tbody>
 		</table>
@@ -45,8 +45,7 @@
 		<div>
 			<select id='searchType'>
 				<option value='i' th:selected="${pageVO.type} == 'i'">Id</option>
-				<option value='s' th:selected="${pageVO.type} == 's'">score</option>
-				<option value='r' th:selected="${pageVO.type} == 'r'">result</option>
+				<option value='t' th:selected="${pageVO.type} == 't'">Target</option>
 			</select> <input type="text" id="searchKeyword" th:value="${pageVO.keyword}">
 			<button id="searchBtn">Search</button>
 		</div>

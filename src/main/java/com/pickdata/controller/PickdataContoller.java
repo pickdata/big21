@@ -73,7 +73,7 @@ public class PickdataContoller {
 		log.info("simulation get");
 		
 		vo.setId(1);
-		vo.setResult(0);
+		vo.setTarget(0);
 		vo.setScore(100.000000000);
 		
 		return "thymeleaf/credits/simulation";

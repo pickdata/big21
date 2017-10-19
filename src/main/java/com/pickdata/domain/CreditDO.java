@@ -16,7 +16,7 @@ public class CreditDO {
 	@Id
 	private Integer bno;
 	private Integer id;
-	private Integer result;
+	private Integer target;
 	private Double score;
 	
 }
