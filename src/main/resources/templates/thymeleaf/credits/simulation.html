@@ -27,7 +27,7 @@
 				<b>데이터입력</b>
 				<div>
 					<form action="result.html">
-						<input type="reset" value="초기화" onclick="reset())">
+						<input type="reset" value="초기화" onclick="reset()">
 
 						<table class="table table-striped table-bordered table-hover">
 							<thead>
@@ -330,7 +330,9 @@
 									<td>24</td>
 									<td>월통화빈도</td>
 									<td id="t2"><input type="number" name="t2lists" min="0"
-										max="2000"></td>
+										max="2000">
+										<div class="form-control:-ms-input-placeholder">사이값</div> 
+										</td>
 								</tr>
 								<tr>
 									<td>24</td>
@@ -427,6 +429,16 @@
 	
 <th:block layout:fragment="script">
 	<script th:inline="javascript">
+	$(document).ready(function() {
+		var formObj = $("#f1");
+
+		$(".pagination a").click(function(e) {
+			e.preventDefault();
+			formObj.find('[name="page"]').val($(this).attr('href'));
+			formObj.submit();
+		});
+	});
+	</script>
 	
 </body>
 <footer>
