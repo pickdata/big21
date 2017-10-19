@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="tbl_credits")
+@Table(name="credit")
 @Data
 public class CreditDO {
 
