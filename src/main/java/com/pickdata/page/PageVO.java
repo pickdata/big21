@@ -61,7 +61,7 @@ public class PageVO {
 
 	public Pageable makePageable(int direction, String... props) {
 
-		Sort.Direction dir = direction == 0 ? Sort.Direction.DESC : Sort.Direction.ASC;
+		Sort.Direction dir = direction == 0 ? Sort.Direction.ASC : Sort.Direction.ASC;
 
 		return PageRequest.of(this.page - 1, this.size, dir, props);
 	}

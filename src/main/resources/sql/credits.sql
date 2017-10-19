@@ -1,13 +1,6 @@
 USE world;
 
-DROP TABLE credits;
+TRUNCATE TABLE tbl_credits;
 
-CREATE TABLE credits
-(
-   id       int,
-   result   int,
-   score    float
-);
-
-load data local infile 'test_set.csv' 
+load data local infile 'Data_set_utf8_sql.csv'
 into table tbl_credits fields terminated by ",";
