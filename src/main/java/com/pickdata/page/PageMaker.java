@@ -50,14 +50,14 @@ public class PageMaker<T> {
 		
 		Pageable startPage = this.currentPage;
 		
-		//move to start Pageble 
+		//move to start Pageable 
 		for(int i = startNum; i < this.currentPageNum; i++){
 			startPage = startPage.previousOrFirst();
 		}
 		this.prevPage = startPage.getPageNumber() <= 0? null :startPage.previousOrFirst();
 		
-//		log.info("tempEndNum: " + tempEndNum);
-//		log.info("total: "+ totalPageNum);
+		log.info("tempEndNum: " + tempEndNum);
+		log.info("total: "+ totalPageNum);
 		
 		if(this.totalPageNum < tempEndNum){
 			tempEndNum = this.totalPageNum;

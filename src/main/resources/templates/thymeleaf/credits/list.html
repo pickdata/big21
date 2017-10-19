@@ -3,7 +3,7 @@
 	layout:decorate="~{layout/credits}">
 
 <head>
-<title>list.html</title>
+<title>연체/미연체 고객 리스트</title>
 <!-- <meta charset="utf-8"> -->
 <!--/*/ 
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="../css/animate.css" th:remove="all">
 </head>
 <div layout:fragment="content">
-	<div class="panel-heading">List</div>
+	<div class="panel-heading">고객 리스트</div>
 
 	<div class="panel-body pull-right">
 		<a class="label label-default" th:href="@{simulation}">상환 예측</a>
@@ -28,6 +28,7 @@
 			id="dataTable">
 			<thead>
 				<tr>
+					<th>BNO</th>
 					<th>ID</th>
 					<th>SCORE</th>
 					<th>TARGET</th>
@@ -35,6 +36,7 @@
 			</thead>
 			<tbody>
 				<tr class="odd gradeX" th:each="credit:${result.content}">
+					<td>[[${credit.bno}]]
 					<td>[[${credit.id}]]</td>
 					<td>[[${credit.score}]]</td>
 					<td>[[${credit.target}]]</td>
