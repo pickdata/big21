@@ -36,7 +36,7 @@
 							<td>연령
 							</td>
 							<td>
-								<select id="age" name="age" th:value="${valuesVO.age}">
+								<select id="age" name="age" th:value="${valuesVO.age}" required="required">
 									<option value="">만 나이로 선택해주세요</option>
 	                        		<option value="0">0이상 20미만</option>
 	                        		<option value="20">20이상 25미만</option>
@@ -56,7 +56,7 @@
 							<td>2</td>
 							<td>성별</td>
 							<td>
-								<select id="sex" name="sex" th:value="${valuesVO.sex}">
+								<select id="sex" name="sex" th:value="${valuesVO.sex}" required="required">
 			                        <option value="1"> 남자 </option>
 			                        <option value="2"> 여자</option>
 			                        <option value="0"> 기타</option>
@@ -67,7 +67,7 @@
 							<td>3</td>
 							<td>현재 은행 대출 총 건수</td>
 							<td>
-								<select id ="c1" name="c1" th:value="${valuesVO.c1}">
+								<select id ="c1" name="c1" th:value="${valuesVO.c1}" required="required">
 			                        <option value="0">0</option>
 			                        <option value="1">1</option>
 			                        <option value="2">2</option>
@@ -81,7 +81,7 @@
 							<td>4</td>
 							<td>현재 카드사/할부사/캐피탈 총 대출 건수</td>
 							<td>
-								<select id="c2" name="c2" th:value="${valuesVO.c2}">
+								<select id="c2" name="c2" th:value="${valuesVO.c2}" required="required">
 			                         <option value="0">0</option>
 			                        <option value="1">1</option>
 			                        <option value="2">2</option>
@@ -95,7 +95,7 @@
 							<td>5</td>
 							<td>현재 2산업분류 총 대출 건수</td>
 							<td>
-								<select id="c3" name="c3" th:value="${valuesVO.c3}">
+								<select id="c3" name="c3" th:value="${valuesVO.c3}" required="required">
 			                        <option value="0">0</option>
 			                        <option value="1">1</option>
 			                        <option value="2">2</option>
@@ -111,7 +111,7 @@
 							<td>6</td>
 							<td>현재 기타 총 대출 건수</td>
 							<td>
-								<select id="c4" name="c4" th:value="${valuesVO.c4}">
+								<select id="c4" name="c4" th:value="${valuesVO.c4}" required="required">
 		                        	<option value="0">0</option>
 		                        	<option value="1">1</option>
 		                        	<option value="2">2</option>
@@ -125,23 +125,23 @@
 		               <tr>
 							<td>7</td>
 							<td>현재 대출 총 금액</td>
-							<td><input type="number" name="c5" th:value="${valuesVO.c5}" min="0" max="1000000"></td>
+							<td><input type="number" name="c5" th:value="${valuesVO.c5}" required="required" min="0" max="1000000"></td>
 		               </tr>
 		               <tr>
 							<td>8</td>
 							<td>현재 신용대출 총 금액</td>
-							<td><input type="number" name="c6" th:value="${valuesVO.c6}" min="0" max="1000000"></td>
+							<td><input type="number" name="c6" th:value="${valuesVO.c6}" required="required" min="0" max="1000000"></td>
 		               </tr>
 		               <tr>
 							<td>9</td>
 							<td>현재 은행 대출 총 금액</td>
-							<td><input type="number" name="c7" th:value="${valuesVO.c7}" min="0" max="1000000"></td>
+							<td><input type="number" name="c7" th:value="${valuesVO.c7}" required="required" min="0" max="1000000"></td>
 		               </tr>
 		               <tr>
 							<td>10</td>
 							<td>신용대출 최근 개설일로부터 현재까지 유지기간</td>
 							<td>
-							<select id="c9" name="c9" th:value="${valuesVO.c9}">
+							<select id="c9" name="c9" th:value="${valuesVO.c9}" required="required">
 		                        <option value="0">해당없음</option>
 		                        <option value="1">1개월 이상 1년 미만</option>
 		                        <option value="13">1년 이상 2년 미만</option>
@@ -161,7 +161,7 @@
 							<td>11</td>
 							<td>2산업분류-신용대출 최근 개설일로부터 현재까지 유지기간</td>
 							<td>
-								<select id="c10" name="c10" th:value="${valuesVO.c10}">
+								<select id="c10" name="c10" th:value="${valuesVO.c10}" required="required">
 			                        <option value="0">해당없음</option>
 			                        <option value="1">1개월 이상 1년 미만</option>
 			                        <option value="13">1년 이상 2년 미만</option>
@@ -181,7 +181,7 @@
 							<td>12</td>
 							<td>현재 신용카드 개설 총 건수</td>
 							<td>
-								<select id="c11" name="c11" th:value="${valuesVO.c11}">
+								<select id="c11" name="c11" th:value="${valuesVO.c11}" required="required">
 										<option value="0">0건</option>
 										<option value="1">1건</option>
 										<option value="2">2건</option>
@@ -200,7 +200,7 @@
 		               <tr>
 							<td>13</td>
 							<td>신용카드 최초 개설일로부터 현재까지 유지기간</td>
-							<td><select id="c12" name="c12" th:value="${valuesVO.c12}">
+							<td><select id="c12" name="c12" th:value="${valuesVO.c12}" required="required">
 			                        <option value="0">해당없음</option>
 			                        <option value="1">1개월 이상 1년 미만</option>
 			                        <option value="13">1년 이상 2년 미만</option>
@@ -220,7 +220,7 @@
 							<td>14</td>
 							<td>현재 보증 총 건수</td>
 							<td>
-								<select id="c13" name="c13" th:value="${valuesVO.c13}">
+								<select id="c13" name="c13" th:value="${valuesVO.c13}" required="required">
 			                        <option value="0">0건 </option>
 			                        <option value="1">1건 </option>
 			                        <option value="2">2건 </option>
@@ -239,7 +239,7 @@
 							<td>15</td>
 							<td>신용대출건수</td>
 							<td>
-								<select id="i9" name="i9" th:value="${valuesVO.i9}">
+								<select id="i9" name="i9" th:value="${valuesVO.i9}" required="required">
 										<option value="0">0건</option>
 										<option value="1">1건</option>
 										<option value="2">2건</option>
@@ -259,7 +259,7 @@
 							<td>16</td>
 							<td>최초신용등급</td>
 							<td>
-								<select id="i16" name="i16" th:value="${valuesVO.i16}">
+								<select id="i16" name="i16" th:value="${valuesVO.i16}" required="required">
 			                        <option value="0">등급 없음</option>
 			                        <option value="1">1등급</option>
 			                        <option value="2">2등급</option>
@@ -274,7 +274,7 @@
 		               <tr>
 							<td>17</td>
 							<td>최근1년보험료연체율</td>
-							<td><select id="i19" name="i19" th:value="${valuesVO.i19}">
+							<td><select id="i19" name="i19" th:value="${valuesVO.i19}" required="required">
 			                        <option value="0"> 0</option>
 			                        <option value="10미만">0% 초과 10% 미만</option>
 			                        <option value="20미만">10% 이상 20% 미만</option>
@@ -290,14 +290,14 @@
 		               <tr>
 							<td>18</td>
 							<td>가구기납입보험료</td>
-							<td><input type="number" name="i30" th:value="${valuesVO.i30}"
+							<td><input type="number" name="i30" th:value="${valuesVO.i30}" required="required" 
 	                     min="0" max="1000000000" step="1000000"></td>
 		               </tr>
 		               <tr>
 							<td>19</td>
 							<td>최근1년 실효해지건수</td>
 							<td>
-								<select id="i32" name="i32" th:value="${valuesVO.i32}">
+								<select id="i32" name="i32" th:value="${valuesVO.i32}" required="required">
 		                        		<option value="0">0건</option>
 										<option value="1">1건</option>
 										<option value="2">2건</option>
@@ -311,27 +311,27 @@
 		               <tr>
 							<td>20</td>
 							<td>자동이체실패월수</td>
-							<td><input type="number" name="i33"  th:value="${valuesVO.i33}" min="0" max="61"></td>
+							<td><input type="number" name="i33"  th:value="${valuesVO.i33}" required="required" min="0" max="61"></td>
 		               </tr>
 		               <tr>
 							<td>21</td>
 							<td>가구만기완납경험횟수</td>
-							<td><input type="number" name="i36" th:value="${valuesVO.i36}" min="0" max="22"></td>
+							<td><input type="number" name="i36" th:value="${valuesVO.i36}" required="required" min="0" max="22"></td>
 		               </tr>
 		               <tr>
 							<td>22</td>
 							<td>월통화시간_분</td>
-							<td><input type="number" name="t1" th:value="${valuesVO.t1}" min="0" max="10000"></td>
+							<td><input type="number" name="t1" th:value="${valuesVO.t1}" required="required" min="0" max="10000"></td>
 		               </tr>
 		               <tr>
 							<td>24</td>
 							<td>월통화빈도</td>
-							<td><input type="number" name="t2" th:value="${valuesVO.t2}" min="0" max="2000"></td>
+							<td><input type="number" name="t2" th:value="${valuesVO.t2}"required="required" min="0" max="2000"></td>
 		               </tr>
 		               <tr>
 							<td>24</td>
 							<td>멤버쉽등급</td>
-							<td><select id="t3" name="t3" th:value="${valuesVO.t3}">
+							<td><select id="t3" name="t3" th:value="${valuesVO.t3}" required="required">
 				                        <option value="R">R</option>
 				                        <option value="W">W</option>
 				                        <option value="Q">Q</option>
@@ -343,19 +343,19 @@
 		               <tr>
 							<td>24</td>
 							<td>가입자매출</td>
-							<td><input type="number" name="t4" th:value="${valuesVO.t4}"
+							<td><input type="number" name="t4" th:value="${valuesVO.t4}"required="required"
 	                     min="0" max="500000" step="10000"></td>
 		               </tr>
 		               <tr>
 							<td>24</td>
 							<td>납부요금</td>
-							<td><input type="number" name="t5" th:value="${valuesVO.t5}"
+							<td><input type="number" name="t5" th:value="${valuesVO.t5}" required="required"
 	                     min="0" max="950000" step="10000"></td>
 		               </tr>
 		               <tr>
 							<td>24</td>
 							<td>단말기가격</td>
-							<td><select id="t7" name="t7" th:value="${valuesVO.t7}">
+							<td><select id="t7" name="t7" th:value="${valuesVO.t7}" required="required">
 			                        <option value="0">100,000원 미만</option>
 			                        <option value="100000">100,000원 이상 200,000원 미만</option>
 			                        <option value="200000">200,000원 이상 300,000원 미만</option>
@@ -375,7 +375,7 @@
 		               <tr>
 							<td>23</td>
 							<td>납부일미준수횟수</td>
-							<td><select id="t11" name="t11" th:value="${valuesVO.t11}">
+							<td><select id="t11" name="t11" th:value="${valuesVO.t11}" required="required">
 			                        <option value="0"> 0번 </option>
 			                        <option value="1"> 1번 </option>
 			                        <option value="2"> 2번 이상 </option>
@@ -385,7 +385,7 @@
 		               <tr>
 							<td>24</td>
 							<td>납부방법</td>
-							<td><select id="t13" name="t13" th:value="${valuesVO.t13}">
+							<td><select id="t13" name="t13" th:value="${valuesVO.t13}" required="required">
 			                        <option value="O">O</option>
 			                        <option value="K">K</option>
 			                        <option value="G">G</option>
@@ -397,7 +397,7 @@
 		               <tr>
 							<td>24</td>
 							<td>회선상태</td>
-							<td><select id="t14" name="t14" th:value="${valuesVO.t14}">
+							<td><select id="t14" name="t14" th:value="${valuesVO.t14}" required="required">
 			                        <option value="U">사용</option>
 			                        <option value="S">정지</option>
 	                        	</select>
