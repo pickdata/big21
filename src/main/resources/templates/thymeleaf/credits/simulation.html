@@ -1,10 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/credits}">
-
-
 <head>
-<!-- <meta charset="utf-8"> -->
 <!--/*/ 
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.css">
@@ -16,819 +13,409 @@
 <link rel="stylesheet" href="../css/bootstrap.css" th:remove="all">
 <link rel="stylesheet" href="../css/animate.css" th:remove="all">
 </head>
-<body>
-<div layout:fragment="content">
-<div class="panel-body">
-   <div>
-   <b>시뮬레이션</b>
-   <ul>
-   <li>입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다</li>
-   </ul>
-   <b>데이터입력</b>
-   <div >
-      <form id="values" action="result.html">
-         <input type="reset">
-         
-         <table border="1">
-            <thead>
-               <tr>
-                  <td>번호</td>
-                  <td>항목</td>
-                  <td>예상값</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>연령</td>
-                  <td><input list="age" name="age" th:value="${valuesVO.age}">
-                   <datalist   id="age">
-                        <option value="0">
-                        <option value="20">
-                        <option value="25">
-                        <option value="30">
-                        <option value="40">
-                        <option value="45">
-                        <option value="50">
-                        <option value="55">
-                        <option value="60">
-                        <option value="65">
-                        <option value="70">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>성별</td>
-                  <td><input list="sex" name="sex" th:value="${valuesVO.sex}">
-                   <datalist   id="sex">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>현재 은행 대출 총 건수</td>
-                  <td><input list="c1" name="c1" th:value="${valuesVO.c1}">
-                   <datalist   id="c1">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>4</td>
-                  <td>현재 카드사/할부사/캐피탈 총 대출 건수</td>
-                  <td><input list="c2" name="c2" th:value="${valuesVO.c2}">
-                   <datalist   id="c2">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>5</td>
-                  <td>현재 2산업분류 총 대출 건수</td>
-                  <td><input list="c3" name="c3" th:value="${valuesVO.c3}">
-                   <datalist   id="c3">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                        <option value="7">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>6</td>
-                  <td>현재 기타 총 대출 건수</td>
-                  <td><input list="c4" name="c4" th:value="${valuesVO.c4}">
-                   <datalist   id="c4">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>7</td>
-                  <td>현재 대출 총 금액</td>
-                  <td><input type="number" name="c5" th:value="${valuesVO.c5}" min="0" max="1000000"></td>
-               </tr>
-               <tr>
-                  <td>8</td>
-                  <td>현재 신용대출 총 금액</td>
-                  <td><input type="number" name="c6" th:value="${valuesVO.c6}" min="0" max="1000000"></td>
-               </tr>
-               <tr>
-                  <td>9</td>
-                  <td>현재 은행 대출 총 금액</td>
-                  <td><input type="number" name="c7" th:value="${valuesVO.c7}" min="0" max="1000000"></td>
-               </tr>
-               <tr>
-                  <td>10</td>
-                  <td>신용대출 최근 개설일로부터 현재까지 유지기간</td>
-                  <td><input list="c9" name="c9" th:value="${valuesVO.c9}">
-                   <datalist   id="c9">
-                        <option value="0">
-                        <option value="1">
-                        <option value="13">
-                        <option value="25">
-                        <option value="37">
-                        <option value="49">
-                        <option value="61">
-                        <option value="73">
-                        <option value="85">
-                        <option value="97">
-                        <option value="109">
-                        <option value="121">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>11</td>
-                  <td>2산업분류-신용대출 최근 개설일로부터 현재까지 유지기간</td>
-                  <td><input list="c10" name="c10" th:value="${valuesVO.c10}">
-                   <datalist   id="c10">
-                        <option value="0">
-                        <option value="1">
-                        <option value="13">
-                        <option value="25">
-                        <option value="37">
-                        <option value="49">
-                        <option value="61">
-                        <option value="73">
-                        <option value="85">
-                        <option value="97">
-                        <option value="109">
-                        <option value="121">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>12</td>
-                  <td>현재 신용카드 개설 총 건수</td>
-                  <td><input list="c11" name="c11" th:value="${valuesVO.c11}">
-                   <datalist   id="c11">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                        <option value="7">
-                        <option value="8">
-                        <option value="9">
-                        <option value="10">
-                        <option value="11">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>13</td>
-                  <td>신용카드 최초 개설일로부터 현재까지 유지기간</td>
-                  <td><input list="c12" name="c12" th:value="${valuesVO.c12}">
-                   <datalist   id="c12">
-                        <option value="0">
-                        <option value="1">
-                        <option value="13">
-                        <option value="25">
-                        <option value="37">
-                        <option value="49">
-                        <option value="61">
-                        <option value="73">
-                        <option value="85">
-                        <option value="97">
-                        <option value="109">
-                        <option value="121">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>14</td>
-                  <td>현재 보증 총 건수</td>
-                  <td><input list="c13" name="c13" th:value="${valuesVO.c13}">
-                   <datalist   id="c13">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                        <option value="7">
-                        <option value="8">
-                        <option value="9">
-                        <option value="10">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>15</td>
-                  <td>신용대출건수</td>
-                  <td><input list="i9" name="i9" th:value="${valuesVO.i9}">
-                   <datalist   id="i9">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                        <option value="7">
-                        <option value="8">
-                        <option value="9">
-                        <option value="10">
-                        <option value="11">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>16</td>
-                  <td>최초신용등급</td>
-                  <td><input list="i16" name="i16" th:value="${valuesVO.i16}">
-                   <datalist   id="i16">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                        <option value="7">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>17</td>
-                  <td>최근1년보험료연체율</td>
-                  <td><input list="i19" name="i19" th:value="${valuesVO.i19}">
-                   <datalist   id="i19">
-                        <option value="0">
-                        <option value="10미만">
-                        <option value="20미만">
-                        <option value="30미만">
-                        <option value="40미만">
-                        <option value="50미만">
-                        <option value="60미만">
-                        <option value="90미만">
-                        <option value="90이상">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>18</td>
-                  <td>가구기납입보험료</td>
-                  <td><input type="number" name="i30" th:value="${valuesVO.i30}"
-                     min="0" max="1000000000" step="1000000"></td>
-               </tr>
-               <tr>
-                  <td>19</td>
-                  <td>최근1년 실효해지건수</td>
-                  <td><input list="i32" name="i32" th:value="${valuesVO.i32}">
-                   <datalist   id="i32">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                        <option value="3">
-                        <option value="4">
-                        <option value="5">
-                        <option value="6">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>20</td>
-                  <td>자동이체실패월수</td>
-                  <td><input type="number" name="i33"  th:value="${valuesVO.i33}" min="0" max="61"></td>
-               </tr>
-               <tr>
-                  <td>21</td>
-                  <td>가구만기완납경험횟수</td>
-                  <td><input type="number" name="i36" th:value="${valuesVO.i36}" min="0" max="22"></td>
-               </tr>
-               <tr>
-                  <td>22</td>
-                  <td>월통화시간_분</td>
-                  <td><input type="number" name="t1" th:value="${valuesVO.t1}" min="0" max="10000"></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>월통화빈도</td>
-                  <td><input type="number" name="t2" th:value="${valuesVO.t2}" min="0" max="2000"></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>멤버쉽등급</td>
-                  <td><input list="t3" name="t3" th:value="${valuesVO.t3}">
-                   <datalist   id="t3">
-                        <option value="X">
-                        <option value="R">
-                        <option value="W">
-                        <option value="Q">
-                        <option value="E">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>가입자매출</td>
-                  <td><input type="number" name="t4" th:value="${valuesVO.t4}"
-                     min="0" max="500000" step="10000"></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>납부요금</td>
-                  <td><input type="number" name="t5" th:value="${valuesVO.t5}"
-                     min="0" max="950000" step="10000"></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>단말기가격</td>
-                  <td><input list="t7" name="t7" th:value="${valuesVO.t7}">
-                   <datalist   id="t7">
-                        <option value="0">
-                        <option value="100000">
-                        <option value="200000">
-                        <option value="300000">
-                        <option value="400000">
-                        <option value="500000">
-                        <option value="600000">
-                        <option value="700000">
-                        <option value="800000">
-                        <option value="900000">
-                        <option value="1000000">
-                        <option value="1100000">
-                        <option value="1200000">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>23</td>
-                  <td>납부일미준수횟수</td>
-                  <td><input list="t11" name="t11" th:value="${valuesVO.t11}">
-                   <datalist   id="t11">
-                        <option value="0">
-                        <option value="1">
-                        <option value="2">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>납부방법</td>
-                  <td><input list="t13" name="t13" th:value="${valuesVO.t13}">
-                   <datalist   id="t13">
-                        <option value="X">
-                        <option value="O">
-                        <option value="K">
-                        <option value="G">
-                        <option value="R">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>회선상태</td>
-                  <td><input list="t14" name="t14" th:value="${valuesVO.t14}">
-                   <datalist   id="t14">
-                        <option value="U">
-                        <option value="S">
-                     </datalist></td>
-               </tr>
-               <tr>
-                  <td>24</td>
-                  <td>남은할부금</td>
-                  <td><input type="number" name="t15" th:value="${valuesVO.t15}"
-                     min="0" max="1110000" step="10000"></td>
-               </tr>
-            </tbody>
-         </table>
-         <input type="submit">
-      </form>
-         </div>
-      <div>
-         <a class="label label-default" th:href="@{list}">전체 리스트</a>
-         </div>
-   </div>
-   </div>
-   </div>
->>>>>>> 7b2f0eb63c95bb60b1100efa8a3c30012af4d21c
-
-						<table class="table table-striped table-bordered table-hover">
-							<thead>
-								<tr>
-									<td>번호</td>
-									<td>항목</td>
-									<td>예상값</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>연령</td>
-									<td id="age">
-										<input list="agelists" name="agelist" value="만 23세인 경우, 20을 선택하세요." >
-											<datalist id="agelists">
-												<option value="0">
-												<option value="20">
-												<option value="25">
-												<option value="30">
-												<option value="40">
-												<option value="45">
-												<option value="50">
-												<option value="55">
-												<option value="60">
-												<option value="65">
-												<option value="70">
-											</datalist>
-									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>성별</td>
-									<td id="sex">
-										<input list="sexlists" name="sexlist">
-										<datalist id="sexlists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-										</datalist></td>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>현재 은행 대출 총 건수</td>
-									<td id="c1"><input list="c1lists" name="c1list"> <datalist
-											id="c1lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-										</datalist></td>
-									</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>현재 카드사/할부사/캐피탈 총 대출 건수</td>
-									<td id="c2"><input list="c2lists" name="c2list"> <datalist
-											id="c2lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>현재 2산업분류 총 대출 건수</td>
-									<td id="c3"><input list="c3lists" name="c3list"> <datalist
-											id="c3lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-											<option value="7">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>현재 기타 총 대출 건수</td>
-									<td id="c4"><input list="c4lists" name="c4list"> <datalist
-											id="c4lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>현재 대출 총 금액</td>
-									<td id="c5"><input type="number" name="c5lists" min="0"
-										max="1000000"></td>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>현재 신용대출 총 금액</td>
-									<td id="c6"><input type="number" name="c6lists" min="0"
-										max="1000000"></td>
-								</tr>
-								<tr>
-									<td>9</td>
-									<td>현재 은행 대출 총 금액</td>
-									<td id="c7"><input type="number" name="c7lists" min="0"
-										max="1000000"></td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>신용대출 최근 개설일로부터 현재까지 유지기간</td>
-									<td id="c9"><input list="c9lists" name="c9list"> <datalist
-											id="c9lists">
-											<option value="0">
-											<option value="1">
-											<option value="13">
-											<option value="25">
-											<option value="37">
-											<option value="49">
-											<option value="61">
-											<option value="73">
-											<option value="85">
-											<option value="97">
-											<option value="109">
-											<option value="121">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>11</td>
-									<td>2산업분류-신용대출 최근 개설일로부터 현재까지 유지기간</td>
-									<td id="c10"><input list="c10lists" name="c10list">
-										<datalist id="c10lists">
-											<option value="0">
-											<option value="1">
-											<option value="13">
-											<option value="25">
-											<option value="37">
-											<option value="49">
-											<option value="61">
-											<option value="73">
-											<option value="85">
-											<option value="97">
-											<option value="109">
-											<option value="121">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>12</td>
-									<td>현재 신용카드 개설 총 건수</td>
-									<td id="c11"><input list="c11lists" name="c11list">
-										<datalist id="c11lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-											<option value="7">
-											<option value="8">
-											<option value="9">
-											<option value="10">
-											<option value="11">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>13</td>
-									<td>신용카드 최초 개설일로부터 현재까지 유지기간</td>
-									<td id="c12"><input list="c12lists" name="c12list">
-										<datalist id="c12lists">
-											<option value="0">
-											<option value="1">
-											<option value="13">
-											<option value="25">
-											<option value="37">
-											<option value="49">
-											<option value="61">
-											<option value="73">
-											<option value="85">
-											<option value="97">
-											<option value="109">
-											<option value="121">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>14</td>
-									<td>현재 보증 총 건수</td>
-									<td id="c13"><input list="c13lists" name="c13list">
-										<datalist id="c13lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-											<option value="7">
-											<option value="8">
-											<option value="9">
-											<option value="10">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>15</td>
-									<td>신용대출건수</td>
-									<td id="i9"><input list="i9lists" name="i9list"> <datalist
-											id="i9lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-											<option value="7">
-											<option value="8">
-											<option value="9">
-											<option value="10">
-											<option value="11">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>16</td>
-									<td>최초신용등급</td>
-									<td id="i16"><input list="i16lists" name="i16list">
-										<datalist id="i16lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-											<option value="7">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>17</td>
-									<td>최근1년보험료연체율</td>
-									<td id="i19"><input list="i19lists" name="i19list">
-										<datalist id="i19lists">
-											<option value="0">
-											<option value="10미만">
-											<option value="20미만">
-											<option value="30미만">
-											<option value="40미만">
-											<option value="50미만">
-											<option value="60미만">
-											<option value="90미만">
-											<option value="90이상">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>18</td>
-									<td>가구기납입보험료</td>
-									<td id="i30"><input type="number" name="t30value" min="0"
-										max="1000000000" step="1000000"></td>
-								</tr>
-								<tr>
-									<td>19</td>
-									<td>최근1년 실효해지건수</td>
-									<td id="i32"><input list="i32lists" name="i32list">
-										<datalist id="i32lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-											<option value="3">
-											<option value="4">
-											<option value="5">
-											<option value="6">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>20</td>
-									<td>자동이체실패월수</td>
-									<td id="i33"><input type="number" name="i33lists" min="0"
-										max="61"></td>
-								</tr>
-								<tr>
-									<td>21</td>
-									<td>가구만기완납경험횟수</td>
-									<td id="i36"><input type="number" name="i36lists" min="0"
-										max="22"></td>
-								</tr>
-								<tr>
-									<td>22</td>
-									<td>월통화시간_분</td>
-									<td id="t1"><input type="number" name="t1lists" min="0"
-										max="10000"></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>월통화빈도</td>
-									<td id="t2"><input type="number" name="t2lists" min="0"
-										max="2000">
-										<div class="form-control:-ms-input-placeholder">사이값</div> 
-										</td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>멤버쉽등급</td>
-									<td id="t3"><input list="t3lists" name="t3list"> <datalist
-											id="t3lists">
-											<option value="X">
-											<option value="R">
-											<option value="W">
-											<option value="Q">
-											<option value="E">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>가입자매출</td>
-									<td id="t4"><input type="number" name="t4value" min="0"
-										max="500000" step="10000"></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>납부요금</td>
-									<td id="t5"><input type="number" name="t5value" min="0"
-										max="950000" step="10000"></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>단말기가격</td>
-									<td id="t7"><input list="t7lists" name="t7list"> <datalist
-											id="t7lists">
-											<option value="0">
-											<option value="100000">
-											<option value="200000">
-											<option value="300000">
-											<option value="400000">
-											<option value="500000">
-											<option value="600000">
-											<option value="700000">
-											<option value="800000">
-											<option value="900000">
-											<option value="1000000">
-											<option value="1100000">
-											<option value="1200000">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>23</td>
-									<td>납부일미준수횟수</td>
-									<td id="t11"><input list="t11lists" name="t11list">
-										<datalist id="t11lists">
-											<option value="0">
-											<option value="1">
-											<option value="2">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>납부방법</td>
-									<td id="t13"><input list="t13lists" name="t13list">
-										<datalist id="t13lists">
-											<option value="X">
-											<option value="O">
-											<option value="K">
-											<option value="G">
-											<option value="R">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>회선상태</td>
-									<td id="t14"><input list="t14lists" name="t14list">
-										<datalist id="t14lists">
-											<option value="U">
-											<option value="S">
-										</datalist></td>
-								</tr>
-								<tr>
-									<td>24</td>
-									<td>남은할부금</td>
-									<td id="t15"><input type="number" name="t15value" min="0"
-										max="1110000" step="10000"></td>
-								</tr>
-							</tbody>
-						</table>
-						<input type="submit">
-					</form>
-				</div>
-				<div>
-					<a class="label label-default" th:href="@{list}">전체 리스트</a>
-				</div>
-			</div>
+<body layout:fragment="content">
+		<div>시뮬레이션</div>
+		<div>
+			입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다.
 		</div>
-	</div>
-	
-<th:block layout:fragment="script">
-	<script th:inline="javascript">
-	$(document).ready(function() {
-		var formObj = $("#f1");
-
-		$(".pagination a").click(function(e) {
-			e.preventDefault();
-			formObj.find('[name="page"]').val($(this).attr('href'));
-			formObj.submit();
-		});
-	});
-	</script>
-	
+		<div>
+			<p>데이터입력</p>
+				<form id="values" name="values" th:action="@{result}" method="post">
+					<input type="reset" id="resetBtn" value="초기화">
+					<table border="1">
+	        	    <thead>
+						<tr>
+							<th>번호</th>
+							<th>항목</th>
+							<th>예상값</th>
+						</tr>
+		            </thead>
+		            <tbody>
+			               <tr>
+							<td>1</td>
+							<td>연령
+							</td>
+							<td>
+								<select id="age" name="age" th:value="${valuesVO.age}">
+									<option value="">만 나이로 선택해주세요</option>
+	                        		<option value="0">0이상 20미만</option>
+	                        		<option value="20">20이상 25미만</option>
+	                        		<option value="25">25이상 30미만</option>
+	                        		<option value="30">30이상 40미만</option>
+	                        		<option value="40">40이상 45미만</option>
+	                        		<option value="45">45이상 50미만</option>
+	                        		<option value="50">50이상 55미만</option>
+	                        		<option value="55">55이상 60미만</option>
+	                        		<option value="60">60이상 65미만</option>
+	                        		<option value="65">65이상 70미만</option>
+	                        		<option value="70">70이상</option>
+								</select>
+                       		</td>
+			               </tr>
+		               <tr>
+							<td>2</td>
+							<td>성별</td>
+							<td>
+								<select id="sex" name="sex" th:value="${valuesVO.sex}">
+			                        <option value="1"> 남자 </option>
+			                        <option value="2"> 여자</option>
+			                        <option value="0"> 기타</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>3</td>
+							<td>현재 은행 대출 총 건수</td>
+							<td>
+								<select id ="c1" name="c1" th:value="${valuesVO.c1}">
+			                        <option value="0">0</option>
+			                        <option value="1">1</option>
+			                        <option value="2">2</option>
+			                        <option value="3">3</option>
+			                        <option value="4">4</option>
+			                        <option value="5">5</option>
+								</select>
+							</td>
+		               </tr>
+		               <tr>
+							<td>4</td>
+							<td>현재 카드사/할부사/캐피탈 총 대출 건수</td>
+							<td>
+								<select id="c2" name="c2" th:value="${valuesVO.c2}">
+			                         <option value="0">0</option>
+			                        <option value="1">1</option>
+			                        <option value="2">2</option>
+			                        <option value="3">3</option>
+			                        <option value="4">4</option>
+			                        <option value="5">5</option>
+		                        </select>
+		                     </td>
+		               </tr>
+		               <tr>
+							<td>5</td>
+							<td>현재 2산업분류 총 대출 건수</td>
+							<td>
+								<select id="c3" name="c3" th:value="${valuesVO.c3}">
+			                        <option value="0">0</option>
+			                        <option value="1">1</option>
+			                        <option value="2">2</option>
+			                        <option value="3">3</option>
+			                        <option value="4">4</option>
+			                        <option value="5">5</option>
+			                        <option value="6">6</option>
+			                        <option value="7">7</option>
+		                        </select>
+	                     	</td>
+		               </tr>
+		               <tr>
+							<td>6</td>
+							<td>현재 기타 총 대출 건수</td>
+							<td>
+								<select id="c4" name="c4" th:value="${valuesVO.c4}">
+		                        	<option value="0">0</option>
+		                        	<option value="1">1</option>
+		                        	<option value="2">2</option>
+		                       	 	<option value="3">3</option>
+		                       	 	<option value="4">4</option>
+		                       	 	<option value="5">5</option>
+		                        	<option value="6">6</option>
+	                        	</select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>7</td>
+							<td>현재 대출 총 금액</td>
+							<td><input type="number" name="c5" th:value="${valuesVO.c5}" min="0" max="1000000"></td>
+		               </tr>
+		               <tr>
+							<td>8</td>
+							<td>현재 신용대출 총 금액</td>
+							<td><input type="number" name="c6" th:value="${valuesVO.c6}" min="0" max="1000000"></td>
+		               </tr>
+		               <tr>
+							<td>9</td>
+							<td>현재 은행 대출 총 금액</td>
+							<td><input type="number" name="c7" th:value="${valuesVO.c7}" min="0" max="1000000"></td>
+		               </tr>
+		               <tr>
+							<td>10</td>
+							<td>신용대출 최근 개설일로부터 현재까지 유지기간</td>
+							<td>
+							<select id="c9" name="c9" th:value="${valuesVO.c9}">
+		                        <option value="0">해당없음</option>
+		                        <option value="1">1개월 이상 1년 미만</option>
+		                        <option value="13">1년 이상 2년 미만</option>
+		                        <option value="25">2년 이상 3년 미만</option>
+		                        <option value="37">3년 이상 4년 미만</option>
+		                        <option value="49">4년 이상 5년 미만</option>
+		                        <option value="61">5년 이상 6년 미만</option>
+		                        <option value="73">6년 이상 7년 미만</option>
+		                        <option value="85">7년 이상 8년 미만</option>
+		                        <option value="97">8년 이상 9년 미만</option>
+		                        <option value="109">9년 이상 10년 미만</option>
+		                        <option value="121">10년 이상</option>
+	                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>11</td>
+							<td>2산업분류-신용대출 최근 개설일로부터 현재까지 유지기간</td>
+							<td>
+								<select id="c10" name="c10" th:value="${valuesVO.c10}">
+			                        <option value="0">해당없음</option>
+			                        <option value="1">1개월 이상 1년 미만</option>
+			                        <option value="13">1년 이상 2년 미만</option>
+			                        <option value="25">2년 이상 3년 미만</option>
+			                        <option value="37">3년 이상 4년 미만</option>
+			                        <option value="49">4년 이상 5년 미만</option>
+			                        <option value="61">5년 이상 6년 미만</option>
+			                        <option value="73">6년 이상 7년 미만</option>
+			                        <option value="85">7년 이상 8년 미만</option>
+			                        <option value="97">8년 이상 9년 미만</option>
+			                        <option value="109">9년 이상 10년 미만</option>
+			                        <option value="121">10년 이상</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>12</td>
+							<td>현재 신용카드 개설 총 건수</td>
+							<td>
+								<select id="c11" name="c11" th:value="${valuesVO.c11}">
+										<option value="0">0건</option>
+										<option value="1">1건</option>
+										<option value="2">2건</option>
+										<option value="3">3건</option>
+										<option value="4">4건</option>
+										<option value="5">5건</option>
+										<option value="6">6건</option>
+										<option value="7">7건</option>
+										<option value="8">8건</option>
+										<option value="9">9건</option>
+										<option value="10">10건</option>
+										<option value="11">11건 이상</option>
+		                        </select>
+							</td>
+						</tr>
+		               <tr>
+							<td>13</td>
+							<td>신용카드 최초 개설일로부터 현재까지 유지기간</td>
+							<td><select id="c12" name="c12" th:value="${valuesVO.c12}">
+			                        <option value="0">해당없음</option>
+			                        <option value="1">1개월 이상 1년 미만</option>
+			                        <option value="13">1년 이상 2년 미만</option>
+			                        <option value="25">2년 이상 3년 미만</option>
+			                        <option value="37">3년 이상 4년 미만</option>
+			                        <option value="49">4년 이상 5년 미만</option>
+			                        <option value="61">5년 이상 6년 미만</option>
+			                        <option value="73">6년 이상 7년 미만</option>
+			                        <option value="85">7년 이상 8년 미만</option>
+			                        <option value="97">8년 이상 9년 미만</option>
+			                        <option value="109">9년 이상 10년 미만</option>
+			                        <option value="121">10년 이상</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>14</td>
+							<td>현재 보증 총 건수</td>
+							<td>
+								<select id="c13" name="c13" th:value="${valuesVO.c13}">
+			                        <option value="0">0건 </option>
+			                        <option value="1">1건 </option>
+			                        <option value="2">2건 </option>
+			                        <option value="3">3건 </option>
+			                        <option value="4">4건 </option>
+			                        <option value="5">5건 </option>
+			                        <option value="6">6건 </option>
+			                        <option value="7">7건 </option>
+			                        <option value="8">8건 </option>
+			                        <option value="9">9건 </option>
+			                        <option value="10">10건 이상</option>
+	                        	</select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>15</td>
+							<td>신용대출건수</td>
+							<td>
+								<select id="i9" name="i9" th:value="${valuesVO.i9}">
+										<option value="0">0건</option>
+										<option value="1">1건</option>
+										<option value="2">2건</option>
+										<option value="3">3건</option>
+										<option value="4">4건</option>
+										<option value="5">5건</option>
+										<option value="6">6건</option>
+										<option value="7">7건</option>
+										<option value="8">8건</option>
+										<option value="9">9건</option>
+										<option value="10">10건</option>
+										<option value="11">11건 이상</option>
+								</select>
+							</td>
+		               </tr>
+		               <tr>
+							<td>16</td>
+							<td>최초신용등급</td>
+							<td>
+								<select id="i16" name="i16" th:value="${valuesVO.i16}">
+			                        <option value="0">등급 없음</option>
+			                        <option value="1">1등급</option>
+			                        <option value="2">2등급</option>
+			                        <option value="3">3등급</option>
+			                        <option value="4">4등급</option>
+			                        <option value="5">5등급</option>
+			                        <option value="6">6등급</option>
+			                        <option value="7">7등급 이상</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>17</td>
+							<td>최근1년보험료연체율</td>
+							<td><select id="i19" name="i19" th:value="${valuesVO.i19}">
+			                        <option value="0"> 0</option>
+			                        <option value="10미만">0% 초과 10% 미만</option>
+			                        <option value="20미만">10% 이상 20% 미만</option>
+			                        <option value="30미만">20% 이상 30% 미만</option>
+			                        <option value="40미만">30% 이상 40% 미만</option>
+			                        <option value="50미만">40% 이상 50% 미만</option>
+			                        <option value="60미만">50% 이상 60% 미만</option>
+			                        <option value="90미만">60% 이상 90% 미만</option>
+			                        <option value="90이상">90% 이상</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>18</td>
+							<td>가구기납입보험료</td>
+							<td><input type="number" name="i30" th:value="${valuesVO.i30}"
+	                     min="0" max="1000000000" step="1000000"></td>
+		               </tr>
+		               <tr>
+							<td>19</td>
+							<td>최근1년 실효해지건수</td>
+							<td>
+								<select id="i32" name="i32" th:value="${valuesVO.i32}">
+		                        		<option value="0">0건</option>
+										<option value="1">1건</option>
+										<option value="2">2건</option>
+										<option value="3">3건</option>
+										<option value="4">4건</option>
+										<option value="5">5건</option>
+										<option value="6">6건 이상</option>
+								</select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>20</td>
+							<td>자동이체실패월수</td>
+							<td><input type="number" name="i33"  th:value="${valuesVO.i33}" min="0" max="61"></td>
+		               </tr>
+		               <tr>
+							<td>21</td>
+							<td>가구만기완납경험횟수</td>
+							<td><input type="number" name="i36" th:value="${valuesVO.i36}" min="0" max="22"></td>
+		               </tr>
+		               <tr>
+							<td>22</td>
+							<td>월통화시간_분</td>
+							<td><input type="number" name="t1" th:value="${valuesVO.t1}" min="0" max="10000"></td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>월통화빈도</td>
+							<td><input type="number" name="t2" th:value="${valuesVO.t2}" min="0" max="2000"></td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>멤버쉽등급</td>
+							<td><select id="t3" name="t3" th:value="${valuesVO.t3}">
+				                        <option value="R">R</option>
+				                        <option value="W">W</option>
+				                        <option value="Q">Q</option>
+				                        <option value="E">E</option>
+				                        <option value="X">기타</option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>가입자매출</td>
+							<td><input type="number" name="t4" th:value="${valuesVO.t4}"
+	                     min="0" max="500000" step="10000"></td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>납부요금</td>
+							<td><input type="number" name="t5" th:value="${valuesVO.t5}"
+	                     min="0" max="950000" step="10000"></td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>단말기가격</td>
+							<td><select id="t7" name="t7" th:value="${valuesVO.t7}">
+			                        <option value="0">100,000원 미만</option>
+			                        <option value="100000">100,000원 이상 200,000원 미만</option>
+			                        <option value="200000">200,000원 이상 300,000원 미만</option>
+			                        <option value="300000">300,000원 이상 400,000원 미만</option>
+			                        <option value="400000">400,000원 이상 500,000원 미만</option>
+			                        <option value="500000">500,000원 이상 600,000원 미만</option>
+			                        <option value="600000">600,000원 이상 700,000원 미만</option>
+			                        <option value="700000">700,000원 이상 800,000원 미만</option>
+			                        <option value="800000">800,000원 이상 900,000원 미만</option>
+			                        <option value="900000">900,000원 이상 1,000,000원 미만</option>
+			                        <option value="1000000">1,000,000원 이상 1,100,000원 미만</option>
+			                        <option value="1100000">1,100,000원 이상 1,200,000원 미만</option>
+			                        <option value="1200000">1,200,000원 이상</option>
+		                        </select>
+	                     	</td>
+		               </tr>
+		               <tr>
+							<td>23</td>
+							<td>납부일미준수횟수</td>
+							<td><select id="t11" name="t11" th:value="${valuesVO.t11}">
+			                        <option value="0"> 0번 </option>
+			                        <option value="1"> 1번 </option>
+			                        <option value="2"> 2번 이상 </option>
+		                        </select>
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>납부방법</td>
+							<td><select id="t13" name="t13" th:value="${valuesVO.t13}">
+			                        <option value="O">O</option>
+			                        <option value="K">K</option>
+			                        <option value="G">G</option>
+			                        <option value="R">R</option>
+			                        <option value="X">기타</option>
+	                       		</select>	
+	                     </td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>회선상태</td>
+							<td><select id="t14" name="t14" th:value="${valuesVO.t14}">
+			                        <option value="U">사용</option>
+			                        <option value="S">정지</option>
+	                        	</select>
+	                  	   </td>
+		               </tr>
+		               <tr>
+							<td>24</td>
+							<td>남은할부금</td>
+							<td><input type="number" name="t15" th:value="${valuesVO.t15}"
+	                     				min="0" max="1110000" step="10000"></td>
+		              </tr>
+	            </tbody>
+	         </table>
+			        <input type="submit" id="submitBtn" value ="예측">
+			        <div>
+			        	<a id="listBtn" th:href="@{list}">전체 리스트</a>
+			    	</div>	
+			    </form>
+         </div>
 </body>
-<footer>
-	<div>
-		<h1>sitemesh footer area</h1>
-	</div>
-</footer>
 </html>

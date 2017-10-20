@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mysql.fabric.xmlrpc.base.Array;
 import com.pickdata.beta.Beta;
 import com.pickdata.columns.ColumnList;
 import com.pickdata.domain.CreditDO;
@@ -103,7 +102,7 @@ public class PickdataContoller {
 	 * result
 	 * bakug
 	 */
-	@GetMapping("/result")
+	@PostMapping("/result")
 	public String result(Integer bno, @ModelAttribute("pageVO") PageVO vo,@ModelAttribute("valuesVO") ValuesVO valuesVo, Model model){
 		
 		Beta bt = new Beta();

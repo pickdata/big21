@@ -9,7 +9,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-
 public class ValuesVO {
 
 	private String age;

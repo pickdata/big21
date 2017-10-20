@@ -23,8 +23,6 @@ public class Beta {
 	private double pdo = 20;
 	private Map<String, Double[]> map = new HashMap<String, Double[]>();
 
-	
-
 	// 호출 될 때 베타 맵을 만들어서 사용
 	public Map<String, Double> map(String columnName) {
 
