@@ -5,19 +5,53 @@
 <meta charset="UTF-8">
 <title>Pickdata Sitemesh</title>
 <link rel="stylesheet" href="../thymeleaf/css/bootstrap.css" th:remove="all">
+<style type="text/css">
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
+body, table, div, p {font-family:'Nanum Gothic';}
+
+table.type03 tr {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 0.8;
+    border-top: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.type03 th {
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+    background: #337ab7;
+}
+table.type03 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+</style>
 </head>
+
+
+
 <body class="container">
 	<div class="page-header" style="text-align:center">
-
-	<div style="text-align:center">
-		<h1> Pickdata 대출 상환 예측</h1>
 	</div>
-	<div class="panel panel-default" layout:fragment="content">
-		<div class="panel-body">Web Board List Page</div>
+	<div style="text-align:center">
+		<h1> PICKDATA</h1>
+	</div>
+	<div layout:fragment="content">
+		<div >Web Board List Page</div>
 	</div>
 		<div class="panel-footer">
-			<div class="text-center">Copyrights 2017 Pickdata</div>
+			<div class="text-center">Copyrights 2017 PICKDATA</div>
 		</div>
 	<!-- custom javascript  -->
 	<th:block layout:fragment="script">	<!-- 오버라이트개념 -->

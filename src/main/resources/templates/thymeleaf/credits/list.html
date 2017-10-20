@@ -17,59 +17,63 @@
 <link rel="stylesheet" href="../css/animate.css" th:remove="all">
 </head>
 <div layout:fragment="content">
-	<div class="panel-heading">고객 리스트</div>
-
-	<div class="panel-body pull-right">
-		<a class="label label-default" th:href="@{simulation}">상환 예측</a>
+	<hr>
+	<div class="panel-heading" style="font-size: 20px;" align="left">고객 리스트</div>
+	<div align="right" style="padding: 20px 5px">
+		<a href="@{simulation}" 
+			style="background-color: #337ab7; width: 90px; height: 35px; border: 1px solid transparent; border-radius: 4px; padding: 8px; margin-right: 1px;
+					color: white; font-size: 15px; font-weight: bold; text-decoration: none;">
+		상환 예측</a>
 	</div>
 
 	<div th:with="result=${pageMaker.result}">
-		<table class="table table-striped table-bordered table-hover"
+		<table class="type03 table-striped" 
 			id="dataTable">
-			<thead>
+			<thead style="font-weight: bold;" align="center">
 				<tr>
-					<th>BNO</th>
-					<th>ID</th>
-					<th>SCORE</th>
-					<th>TARGET</th>
+					<th>No.</th>
+					<th>고객 번호</th>
+					<th>신용 평점</th>
+					<th>예측 결과</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="odd gradeX" th:each="credit:${result.content}">
-					<td th:text="${credit.bno}"></td>
+				<tr th:each="credit:${result.content}">
+					<td th:text="${credit.bno}" style="font-weight: bold;"></td>
 					<td th:text="${credit.id}"></td>
 					<td th:text="${credit.score}"></td>
 					<td>
-						<p th:if="${credit.target == 1}" style="color: red;">연체</p>
+						<p th:if="${credit.target == 1}" style="color: #f83a28;">연체</p>
 						<p th:unless="${credit.target == 1}">미연체</p>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 
+		<br>
 		<div>
 			<select id='searchType'>
 				<option value='i' th:selected="${pageVO.type} == 'i'">Id</option>
 				<option value='t' th:selected="${pageVO.type} == 't'">Target</option>
 			</select> <input type="text" id="searchKeyword" th:value="${pageVO.keyword}">
-			<button id="searchBtn">Search</button>
+			<button id="searchBtn" >Search</button>
 		</div>
 	</div>
 
 	<nav>
 		<div>
 			<ul class="pagination">
-				<li th:if="${pageMaker.prevPage}"><a
-					th:href="${pageMaker.prevPage.pageNumber} + 1 "> PREV
+				<li class="page-item" th:if="${pageMaker.prevPage}"><a
+					th:href="${pageMaker.prevPage.pageNumber} + 1 " > PREV
 						[[${pageMaker.prevPage.pageNumber} + 1]] </a></li>
 
 				<li class="page-item"
 					th:classappend="${p.pageNumber == pageMaker.currentPageNum - 1}?active: ''"
-					th:each="p:${pageMaker.pageList}"><a
-					th:href="${p.pageNumber} + 1"> [[${p.pageNumber} + 1]] </a></li>
+					th:each="p:${pageMaker.pageList}" ><a
+					th:href="${p.pageNumber} + 1" > [[${p.pageNumber} + 1]] </a></li>
 
 				<li class="page-item" th:if="${pageMaker.nextPage}"><a
-					th:href="${pageMaker.nextPage.pageNumber} + 1"> NEXT
+					th:href="${pageMaker.nextPage.pageNumber} + 1" > NEXT
 						[[${pageMaker.nextPage.pageNumber} + 1]] </a></li>
 			</ul>
 		</div>
