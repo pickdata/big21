@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.pickdata.domain.Manager;
 import com.pickdata.persistence.ManagerRepository;
+import com.pickdata.domain.ManagerRole;
 
 import lombok.extern.java.Log;
 
@@ -29,6 +30,9 @@ public class ManagerTests {
 		Manager mgr = new Manager();
 		mgr.setUid("pickdata");
 		mgr.setUpw("pickme");
+		
+		ManagerRole role = new ManagerRole();
+		role.setRoleName("MANAGER");
 		
 		repo.save(mgr);
 		

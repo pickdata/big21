@@ -116,7 +116,7 @@ public class PickdataContoller {
 		
 		log.info("login page ...");
 
-		repo2.save(vo);
+//		repo2.save(vo);
 		return "thymeleaf/credits/login";
 	}
 	

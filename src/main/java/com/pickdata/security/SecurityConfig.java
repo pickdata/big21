@@ -15,8 +15,8 @@ import lombok.extern.java.Log;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	DataSource datasource;
-
+	DataSource datasource;	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
@@ -24,7 +24,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("security config...");
 		log.info("##################");
 		
-		http.authorizeRequests().antMatchers("/login/**").permitAll();
+		http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER").and()
+			.formLogin().loginPage("/credits/login").permitAll();
+		
+		
+		//source 2
+//		http.authorizeRequests().antMatchers("/list/**").permitAll()
+//			.and().formLogin().loginPage("/login/**").permitAll()
+//			.and().logout().permitAll();
+		
+		//source 1
 //		http.authorizeRequests()
 //        .anyRequest().authenticated()
 //        .and()
@@ -35,19 +44,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //    .permitAll();
 
 		
-		http.formLogin();
+//		http.formLogin();
 	}	
-	
+		
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
 		
-		String query1 = 
-				"select uid username, upw password from tbl_manager where uid = ?";
-		
-		auth.jdbcAuthentication().dataSource(datasource).usersByUsernameQuery(query1);
-//		auth.jdbcAuthentication().getUserDetailsService().
-//		auth.jdbcAuthentication().withUser("pickdata").password("pickme");
-//		auth.inMemoryAuthentication().withUser("pickdata").password("pickme");
+		auth.inMemoryAuthentication().withUser("pickdata").password("pickme").roles("MANAGER");
+
 	}
+	
+//	@Autowired
+//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+//		
+//		String query1 = 
+//				"select uid username, upw password from tbl_manager where uid = ?";
+//		
+//		auth.jdbcAuthentication().dataSource(datasource).usersByUsernameQuery(query1);
+//
+//	}
 	
 }
