@@ -3,6 +3,7 @@ package com.pickdata.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.config.web.server.HttpSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -112,12 +113,42 @@ public class PickdataContoller {
 	 * yoon
 	 */
 	@GetMapping("/login")
-	public String login(@ModelAttribute("manager") Manager vo){
+	public String login(/*@ModelAttribute("manager") Manager vo*/){
 		
 		log.info("login page ...");
 
 //		repo2.save(vo);
 		return "thymeleaf/credits/login";
 	}
+	
+	/*
+	 * logout
+	 * yoon
+	 */
+	@GetMapping("/logout")
+	public String logout(@ModelAttribute("pageVO") PageVO vo, Model model) throws Exception{
+		
+		log.info("logout page ...");
+		
+//		Pageable pageable = vo.makePageable(0, "bno");
+//		Predicate predicate = repo.makePredicate(vo.getType(), vo.getKeyword());
+//
+//		Page<CreditDO> result = repo.findAll(predicate, pageable);
+//
+//		log.info("" + pageable);
+//		log.info("" + result);
+//
+//		log.info("TOTAL PAGE NUMBER: " + result.getTotalPages());
+//
+//		model.addAttribute("pageMaker", new PageMaker(result));
+
+//	http.exceptionHandling().accessDeniedPage("/credits/list"); 
+//		
+//		http.logout().logoutUrl("/logout").invalidateHttpSession(true);
+		
+		return "thymeleaf/credits/logout";
+	}
+	
+
 	
 }

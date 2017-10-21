@@ -3,19 +3,28 @@ package com.pickdata.security;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import lombok.extern.java.Log;
 
 @Log
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	DataSource datasource;	
+	
+	@Autowired
+	PickUserService pickUserService;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -24,44 +33,45 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("security config...");
 		log.info("##################");
 		
-		http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER").and()
-			.formLogin().loginPage("/credits/login").permitAll();
+		http.authorizeRequests().antMatchers("/credits/list/**").hasRole("MANAGER").and()
+			.formLogin().loginPage("/credits/login");
 		
+		http.exceptionHandling().accessDeniedPage("/credits/list"); 
 		
-		//source 2
-//		http.authorizeRequests().antMatchers("/list/**").permitAll()
-//			.and().formLogin().loginPage("/login/**").permitAll()
-//			.and().logout().permitAll();
+		http.logout().logoutUrl("/credits/logout").invalidateHttpSession(true);
 		
-		//source 1
-//		http.authorizeRequests()
-//        .anyRequest().authenticated()
-//        .and()
-//    .formLogin().loginPage("/login/**")
-//    .permitAll()
-//        .and()
-//    .logout()
-//    .permitAll();
-
-		
-//		http.formLogin();
+	
 	}	
+	
+	private PersistentTokenRepository getJDBCRepository() {
 		
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+		JdbcTokenRepositoryImpl repo = new JdbcTokenRepositoryImpl();
+		repo.setDataSource(datasource);
 		
-		auth.inMemoryAuthentication().withUser("pickdata").password("pickme").roles("MANAGER");
-
+		return repo;
 	}
 	
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+		
 //	@Autowired
 //	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
 //		
+//		auth.userDetailsService(pickUserService).passw 
+//
+//	}
+	
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+			
+		auth.inMemoryAuthentication().withUser("pickdata").password("pickme").roles("MANAGER");	
 //		String query1 = 
 //				"select uid username, upw password from tbl_manager where uid = ?";
 //		
 //		auth.jdbcAuthentication().dataSource(datasource).usersByUsernameQuery(query1);
-//
-//	}
+
+	}
 	
 }
