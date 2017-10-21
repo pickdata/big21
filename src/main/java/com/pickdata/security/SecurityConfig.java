@@ -33,12 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("security config...");
 		log.info("##################");
 		
-		http.authorizeRequests().antMatchers("/credits/list/**").hasRole("MANAGER").and()
-			.formLogin().loginPage("/credits/login");
+		http.authorizeRequests().antMatchers("/credits/list/**").hasRole("MANAGER");
+		http.formLogin().loginPage("/credits/login");
 		
 		http.exceptionHandling().accessDeniedPage("/credits/list"); 
 		
-		http.logout().logoutUrl("/credits/logout").invalidateHttpSession(true);
+		http.logout().logoutUrl("/credits/list").invalidateHttpSession(true);
+//		http.logout().invalidateHttpSession(true);
 		
 	
 	}	

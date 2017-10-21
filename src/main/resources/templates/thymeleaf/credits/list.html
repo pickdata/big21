@@ -18,7 +18,11 @@
 </head>
 <div layout:fragment="content">
 	<div class="panel-heading">List</div>
-
+	<form method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}" />
+		<button type="submit" class="btn">로그아웃</button>
+	</form>
 	<div class="panel-body pull-right">
 		<a class="label label-default" th:href="@{simulation}">상환 예측</a>
 	</div>
@@ -95,7 +99,6 @@
 			$("#searchBtn").click(function(e) {
 				var typeStr = $("#searchType").find(":selected").val();
 				var keywordStr = $("#searchKeyword").val();
-
 
 				formObj.find("[name='type']").val(typeStr);
 				formObj.find("[name='keyword']").val(keywordStr);

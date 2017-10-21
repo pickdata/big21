@@ -121,6 +121,15 @@ public class PickdataContoller {
 		return "thymeleaf/credits/login";
 	}
 	
+//	@GetMapping("/login?logout")
+//	public String relogin(/*@ModelAttribute("manager") Manager vo*/){
+//		
+//		log.info("relogin page ...");
+//
+////		repo2.save(vo);
+//		return "thymeleaf/credits/list";
+//	}
+	
 	/*
 	 * logout
 	 * yoon
@@ -130,25 +139,19 @@ public class PickdataContoller {
 		
 		log.info("logout page ...");
 		
-//		Pageable pageable = vo.makePageable(0, "bno");
-//		Predicate predicate = repo.makePredicate(vo.getType(), vo.getKeyword());
-//
-//		Page<CreditDO> result = repo.findAll(predicate, pageable);
-//
-//		log.info("" + pageable);
-//		log.info("" + result);
-//
-//		log.info("TOTAL PAGE NUMBER: " + result.getTotalPages());
-//
-//		model.addAttribute("pageMaker", new PageMaker(result));
-
-//	http.exceptionHandling().accessDeniedPage("/credits/list"); 
-//		
-//		http.logout().logoutUrl("/logout").invalidateHttpSession(true);
-		
 		return "thymeleaf/credits/logout";
 	}
 	
-
+	/*
+	 * accessDenied
+	 * yoon
+	 */
+	@GetMapping("/accessDenied")
+	public String accessDenied(@ModelAttribute("pageVO") PageVO vo, Model model) throws Exception{
+		
+		log.info("accessDenied page ...");
+		
+		return "thymeleaf/credits/accessDenied";
+	}
 	
 }
