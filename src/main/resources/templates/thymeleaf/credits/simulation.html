@@ -25,13 +25,15 @@
    <li>입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다</li>
    </ul>
    <b>데이터입력</b>
+   
    <div >
       <form action="result.html">
          <input type="reset">
-         
-         <table border="1">
-            <thead>
-               <tr>
+         <br>
+         <table class="type03 table-striped" 
+			id="dataTable">
+			<thead style="font-weight: bold;" align="center">
+               <tr style="background: #337ab7">
                   <td>번호</td>
                   <td>항목</td>
                   <td>예상값</td>
@@ -64,7 +66,7 @@
                         <option value="0">
                         <option value="1">
                         <option value="2">
-                     </datalist></td></td>
+                     </datalist></td>
                </tr>
                <tr>
                   <td>3</td>
