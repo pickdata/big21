@@ -3,17 +3,15 @@
 <!-- 	layout:decorate="~{layout/credits}"/> -->
 
 <head>
-<title>logout.html</title>
+<title>guest.html</title>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+
 <link rel="stylesheet" href="../css/bootstrap.css" th:remove="all">
 <link rel="stylesheet" href="../css/animate.css" th:remove="all">
 </head>
-
-<form method="post">
-	<input type="hidden" th:name="${_csrf.parameterName}"
-		th:value="${_csrf.token}"/>
-	<button type="submit" class="btn">로그아웃</button>
-</form>
+<body>
+권한 없음
+<a th:href="@{list}">로그인 페이지로 이동</a>
   
   
   

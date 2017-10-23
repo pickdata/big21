@@ -11,10 +11,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "tbl_manager_roles")
+@Table(name = "tbl_member_roles")
 @EqualsAndHashCode(of = "fno")
 @Data
-public class ManagerRole {
+public class MemberRole {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

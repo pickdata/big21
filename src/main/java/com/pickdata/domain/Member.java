@@ -15,18 +15,18 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 
-import com.pickdata.domain.ManagerRole;
+import com.pickdata.domain.MemberRole;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Entity
-@Table(name = "tbl_manager")
+@Table(name = "tbl_members")
 @EqualsAndHashCode(of = "uid")
 @Data
 @ToString
-public class Manager {
+public class Member {
 
 	
 	@Id
@@ -34,12 +34,12 @@ public class Manager {
 	@Column(name = "uid")
 	private String uid;
 	
-	@Column(name = "password")
+	@Column(name = "upw")
 	@Transient
 	private String upw;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "manager")
-	private List<ManagerRole> roles;
+	@JoinColumn(name = "member")
+	private List<MemberRole> roles;
 
 }

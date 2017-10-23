@@ -7,8 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import com.pickdata.domain.Manager;
-import com.pickdata.domain.ManagerRole;
+import com.pickdata.domain.Member;
+import com.pickdata.domain.MemberRole;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,16 +19,16 @@ public class PickSecurityUser extends User {
 	
 	private static final String ROLE_PREFIX = "ROLE_";
 	
-	private Manager manager;
+	private Member member;
 	
-	public PickSecurityUser(Manager manager) {
+	public PickSecurityUser(Member member) {
 		
-		super(manager.getUid(), manager.getUpw(), makeGrantedAuthority(manager.getRoles()));
+		super(member.getUid(), member.getUpw(), makeGrantedAuthority(member.getRoles()));
 		
-		this.manager = manager;
+		this.member = member;
 	}
 	
-	private static List<GrantedAuthority> makeGrantedAuthority(List<ManagerRole> roles){
+	private static List<GrantedAuthority> makeGrantedAuthority(List<MemberRole> roles){
 		
 		List<GrantedAuthority> list = new ArrayList<>();
 		

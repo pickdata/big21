@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.pickdata.domain.Manager;
-import com.pickdata.persistence.ManagerRepository;
-import com.pickdata.domain.ManagerRole;
+import com.pickdata.domain.Member;
+import com.pickdata.persistence.MemberRepository;
+import com.pickdata.domain.MemberRole;
 
 import lombok.extern.java.Log;
 
@@ -19,19 +19,19 @@ import lombok.extern.java.Log;
 @SpringBootTest
 @Log
 @Commit
-public class ManagerTests {
+public class MemberTests {
 
 	@Autowired
-	private ManagerRepository repo;
+	private MemberRepository repo;
 	
 	@Test
 	public void testInsert() {
 		
-		Manager mgr = new Manager();
+		Member mgr = new Member();
 		mgr.setUid("pickdata");
 		mgr.setUpw("pickme");
 		
-		ManagerRole role = new ManagerRole();
+		MemberRole role = new MemberRole();
 		role.setRoleName("MANAGER");
 		
 		repo.save(mgr);
@@ -41,7 +41,7 @@ public class ManagerTests {
 	@Test
 	public void testRead(){
 		
-		Optional<Manager> result = repo.findById("pickdata");
+		Optional<Member> result = repo.findById("pickdata");
 		result.ifPresent(mgr -> log.info("mgr" + mgr));
 		
 	}

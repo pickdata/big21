@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.pickdata.persistence.ManagerRepository;
+import com.pickdata.persistence.MemberRepository;
 
 import lombok.extern.java.Log;
 
@@ -14,7 +14,7 @@ import lombok.extern.java.Log;
 public class PickUserService {
 	
 	@Autowired
-	ManagerRepository repo;
+	MemberRepository repo;
 	
 	
 	
@@ -22,7 +22,7 @@ public class PickUserService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
 		
 		repo.findById(username)
-		.ifPresent(manager -> log.info(""+manager));
+		.ifPresent(member -> log.info(""+member));
 		
 		return repo.findById(username).filter(m -> m != null).map(m -> new PickSecurityUser(m)).get();
 	}

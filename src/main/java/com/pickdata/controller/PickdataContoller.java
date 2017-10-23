@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pickdata.domain.CreditDO;
-import com.pickdata.domain.Manager;
+import com.pickdata.domain.Member;
 import com.pickdata.page.PageMaker;
 import com.pickdata.page.PageVO;
-import com.pickdata.persistence.ManagerRepository;
+import com.pickdata.persistence.MemberRepository;
 import com.pickdata.persistence.PickdataRepository;
 import com.querydsl.core.types.Predicate;
 
@@ -29,7 +29,7 @@ public class PickdataContoller {
 
 	@Autowired
 	private PickdataRepository repo;
-	private ManagerRepository repo2;
+	private MemberRepository repo2;
 
 	/*
 	 * list.html
@@ -121,15 +121,7 @@ public class PickdataContoller {
 		return "thymeleaf/credits/login";
 	}
 	
-//	@GetMapping("/login?logout")
-//	public String relogin(/*@ModelAttribute("manager") Manager vo*/){
-//		
-//		log.info("relogin page ...");
-//
-////		repo2.save(vo);
-//		return "thymeleaf/credits/list";
-//	}
-	
+
 	/*
 	 * logout
 	 * yoon
@@ -143,15 +135,14 @@ public class PickdataContoller {
 	}
 	
 	/*
-	 * accessDenied
-	 * yoon
+	 * 로그인 페이지로 이동하기 위한 게스트 페이지 (재로그인할 때 사용)
 	 */
-	@GetMapping("/accessDenied")
-	public String accessDenied(@ModelAttribute("pageVO") PageVO vo, Model model) throws Exception{
+	@GetMapping("/guest")
+	public String guest() throws Exception{
 		
-		log.info("accessDenied page ...");
+		log.info("guest page ...");
 		
-		return "thymeleaf/credits/accessDenied";
+		return "thymeleaf/credits/guest";
 	}
 	
 }

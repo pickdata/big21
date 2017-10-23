@@ -34,9 +34,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("##################");
 		
 		http.authorizeRequests().antMatchers("/credits/list/**").hasRole("MANAGER");
+		http.authorizeRequests().antMatchers("/credits/result/**").denyAll();
+		http.authorizeRequests().antMatchers("/credits/simulation/**").hasRole("MANAGER");
+		http.authorizeRequests().antMatchers("/credits/guest/**").permitAll();
 		http.formLogin().loginPage("/credits/login");
 		
-		http.exceptionHandling().accessDeniedPage("/credits/list"); 
+//		http.exceptionHandling().accessDeniedPage("/credits/accessDenied"); 
 		
 		http.logout().logoutUrl("/credits/list").invalidateHttpSession(true);
 //		http.logout().invalidateHttpSession(true);
@@ -68,10 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
 			
 		auth.inMemoryAuthentication().withUser("pickdata").password("pickme").roles("MANAGER");	
-//		String query1 = 
-//				"select uid username, upw password from tbl_manager where uid = ?";
-//		
-//		auth.jdbcAuthentication().dataSource(datasource).usersByUsernameQuery(query1);
+		auth.inMemoryAuthentication().withUser("guest").password("1234").roles("GUEST");
 
 	}
 	
