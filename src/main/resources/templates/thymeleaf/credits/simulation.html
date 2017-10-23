@@ -16,11 +16,12 @@
 <body layout:fragment="content">
 		<div>시뮬레이션</div>
 		<div>
-			입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다.
+			입력된 데이터를 기존 시나리오에 적용한 상환 예측 프로그램으로 실제와 다를 수 있습니다.
 		</div>
 		<div>
 			<p>데이터입력</p>
-				<form id="values" name="values" th:action="@{result}" method="post">
+				<form id="values" name="values" th:action="@{result}" 
+					 	method="post" >
 					<input type="reset" id="resetBtn" value="초기화">
 					<table border="1">
 	        	    <thead>
@@ -36,7 +37,7 @@
 							<td>연령
 							</td>
 							<td>
-								<select id="age" name="age" th:value="${valuesVO.age}" required="required">
+								<select id="age" name="age" th:value="${valuesVO.age}">
 									<option value="">만 나이로 선택해주세요</option>
 	                        		<option value="0">0이상 20미만</option>
 	                        		<option value="20">20이상 25미만</option>
@@ -417,5 +418,13 @@
 			    	</div>	
 			    </form>
          </div>
+         
 </body>
+<!-- 	javascript -->
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+// 			$(document).rea
+		</script>
+	</th:block>
+
 </html>
