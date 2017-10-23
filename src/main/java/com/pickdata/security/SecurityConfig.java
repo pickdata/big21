@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("##################");
 		
 		http.authorizeRequests().antMatchers("/credits/list/**").hasRole("MANAGER");
-		http.authorizeRequests().antMatchers("/credits/result/**").denyAll();
+		http.authorizeRequests().antMatchers("/credits/result/**").hasRole("MANAGER");
 		http.authorizeRequests().antMatchers("/credits/simulation/**").hasRole("MANAGER");
 		http.authorizeRequests().antMatchers("/credits/guest/**").permitAll();
 		http.formLogin().loginPage("/credits/login");
