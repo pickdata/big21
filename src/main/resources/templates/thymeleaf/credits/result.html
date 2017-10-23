@@ -18,13 +18,13 @@
 </head>
 <body>
 <div layout:fragment="content">
-	<div class="panel-heading">result</div>
 
 	<div class="panel-body">
 		<div>
-			<h1>시뮬레이션 결과</h1>
-			<h4>-입력된 데이터를 기존 시나리오 ...</h4>
-			<table border="1">
+			<b>시뮬레이션 결과</b>
+			<li>입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다</li>
+			<table class="type03 table-striped" 
+			id="dataTable">
 				<tr>
 					<th>Score</th>
 					<th>예상결과</th>
@@ -36,7 +36,8 @@
 			</table>
 		</div>
 		<div>
-			 <a class="label label-default" th:href="@{list}">전체 리스트</a><a class="label label-default" th:href="@{simulation}">상환 예측</a>
+			 <a class="label label-default" th:href="@{list}">전체 리스트</a>
+			 <a class="label label-default" th:href="@{simulation}">상환 예측</a>
 		</div>
 	</div>
 
