@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.pickdata</groupId>
-	<artifactId>big20</artifactId>
+	<artifactId>big21</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>big20</name>
+	<name>big21</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -125,6 +125,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>1.11.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -189,6 +194,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
 </project>

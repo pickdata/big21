@@ -1,10 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/credits}">
-
 <head>
-<title>list.html</title>
-<!-- <meta charset="utf-8"> -->
 <!--/*/ 
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.css">
@@ -19,27 +16,51 @@
 <body>
 <div layout:fragment="content">
 
-	<div class="panel-body">
-		<div>
-			<b>시뮬레이션 결과</b>
-			<li>입력된 데이터를 기존 시나리오에 적용하여 상환 예측 프로그램으로 실제와 다를 수 있습니다</li>
-			<table class="type03 table-striped" 
-			id="dataTable">
+<!-- title 영역 -->
+	<table class="type05">
+			<tr>
+				<td>
+						<div class="type03-title">시뮬레이션</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+						<div>
+							입력된 데이터를 기존 시나리오에 적용한 상환 예측 프로그램으로 실제와 다를 수 있습니다.
+						</div>
+				</td>
+			</tr>
+	</table>
+	
+<!-- 	결과 표 -->
+	<table class="type03 table-striped" id="dataTable">
 				<tr>
 					<th>Score</th>
 					<th>예상결과</th>
 				</tr>
 				<tr>
-					<td><b th:text="${totalScore}"></b></td>
-					<td><b th:text="${judgement}"></b></td>
+					<td class="type06"><div th:text="${totalScore}"></div></td>
+					<td class="type06">
+						<p th:if="${judgement == 1}" style="color: #f83a28;">연체</p>
+						<p th:unless="${judgement == 1}">미연체</p>
+					</td>
 				</tr>
 			</table>
-		</div>
-		<div>
-			 <a class="label label-default" th:href="@{list}">전체 리스트</a>
-			 <a class="label label-default" th:href="@{simulation}">상환 예측</a>
-		</div>
-	</div>
-
+<!-- 	하단 버튼 : 제출, 백-->
+	    <table class="type06">
+	         <tr>
+		         <td class="type03-div-left">
+		         	<div class="type03-div-left">
+		         		<a class="type03" th:href="@{simulation}">상환 예측</a>
+	         		</div>
+		         </td>
+		           <td class="type03-div-right">
+		         	<div class="type03-div-right">
+				        	<a id="listBtn" th:href="@{list}">전체 리스트</a>
+				    	</div>	
+		         </td>
+	         </tr>
+	    </table>
 </div>
 </body>
+</html>

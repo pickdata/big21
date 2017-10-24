@@ -3,9 +3,8 @@
 <!-- 	layout:decorate="~{layout/credits}"/> -->
 
 <head>
-<title>logout.html</title>
-<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-<!-- <meta charset="utf-8"> -->
+<title>pickdata</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <!--/*/ 
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.css">
@@ -16,19 +15,190 @@
 /*/-->
 <link rel="stylesheet" href="../css/bootstrap.css" th:remove="all">
 <link rel="stylesheet" href="../css/animate.css" th:remove="all">
-</head>
 
-<form method="post">
-	<input type="hidden" th:name="${_csrf.parameterName}"
-		th:value="${_csrf.token}"/>
-	<button type="submit" class="btn">로그아웃</button>
-</form>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,600">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+html, body{
+height: 100%;
+}
+
+
+body {
+   background: url(https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/22687656_1969408796666860_2323090050963138888_n.jpg?oh=a4762071f4487a12286b8e1d4b591819&oe=5A7838AB);
+   background-position: center;
+   background-size: cover;
+   font-family: 'Montserrat', sans-serif;
+   height: 100%;
+}
+
+.login-form {
+   background: rgba(255, 255, 255, 0.25);
+   padding-bottom: 20px;
+   margin-top: 150px;
+   box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+   border-radius: 4px
+}
+
+.input-group-addon {
+   background: #4e4a59;
+   border: none;
+   color: #fff
+}
+
+.form-control {
+   border: none;
+   color: #fff;
+   outline: none !important;
+   box-shadow: none !important;
+   background: #4e4a59
+}
+
+.input-group {
+   margin-bottom: 15px
+}
+
+.btn {
+   border: none;
+   padding: 8px;
+   outline: none !important;
+   box-shadow: none !important
+}
+
+.logo-b {
+   height: 80px;
+   width: 80px;
+   border: solid 5px #d9534f;
+   margin: 15px 0;
+   font-weight: 600;
+   padding: 0;
+   display: inline-block;
+   color: #d9534f;
+   font-size: 60px;
+   line-height: 70px;
+   border-radius: 50%
+}
+
+@media ( max-width :900px) {
+   .login-form {
+      margin-top: 100px
+   }
+}
+
+body, table, div, p {
+	font-family: 'Nanum Gothic';
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#body{
+min-height: 100%;
+}
+#content{
+padding-bottom: 1em;
+}
+#footer{
+	padding-bottom: 5em;
+	padding-top: 5em;
+	margin-top:-1em;
+	height: 1em;
+}
+div.type03 {
+	text-align: center;
+	font-family: 'Nanum Gothic';
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+table.type03 tr {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+	vertical-align: center;
+	line-height: 0.8;
+	border-top: 1px solid #ccc;
+	margin: 20px 10px;
+}
+
+table.type03 th {
+	width: 150px;
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	vertical-align: center;
+	border-bottom: 1px solid #ccc;
+	background: #337ab7;
+}
+
+table.type03 td {
+	width: 350px;
+	height: auto;
+	padding: 10px;
+	vertical-align: center;
+	border-bottom: 1px solid #ccc;
+}
+
+input.type03 select {
+	width: 100%;
+}
+
+button.type03 {
+	background-color: #337ab7;
+	width: 70px;
+	height: 30px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	margin: 8px;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.type03-div-center {
+	text-align: center;
+	font-size: 20px;
+	font-family: 'Nanum Gothic';
+	padding: 20px 5px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+</style>
+<script>
+	!function(e, t, a, n, c, o, s) {
+		e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+			(e[c].q = e[c].q || []).push(arguments)
+		}, e[c].l = 1 * new Date, o = t.createElement(a), s = t
+				.getElementsByTagName(a)[0], o.async = 1,
+				o.src = "https://www.google-analytics.com/analytics.js",
+				s.parentNode.insertBefore(o, s)
+	}(window, document, "script", 0, "ga"), ga("create", "UA-90649494-1",
+			"auto"), ga("send", "pageview")
+</script>
+</head>
+<body id="body">
+	<div class="col-md-4 col-md-offset-4 login-form text-center">
+		<div style="text-align:center; color:white;">
+			<h1> PICKDATA</h1>
+		</div>
+	    <form method="post">
+      <!--  logout button -->
+				<input type="hidden" th:name="${_csrf.parameterName}"
+					th:value="${_csrf.token}" />
+				<button type="submit" class="btn btn-primary btn-block">로그아웃</button>
+			</form>
+		</div>
+		<div id="footer">
+			<div class="text-center">Copyrights 2017 PICKDATA</div>
+		</div>
+</body>  
+</html>

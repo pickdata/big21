@@ -1,7 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org"></html>
-<!-- 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
-<!-- 	layout:decorate="~{layout/credits}"/> -->
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>guest.html</title>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -20,7 +17,25 @@
 
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
-body, table, div, p {font-family:'Nanum Gothic';}
+body, table, div, p {
+	font-family: 'Nanum Gothic';
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#body{
+min-height: 100%;
+}
+#content{
+padding-bottom: 1em;
+}
+#footer{
+	padding-bottom: 5em;
+	padding-top: 5em;
+	margin-top:-1em;
+	height: 1em;
+}
 </style>
 </head>
 <body>
@@ -29,16 +44,16 @@ body, table, div, p {font-family:'Nanum Gothic';}
 		<h1> PICKDATA</h1>
 	</div>
 	</div>
-<div class="page-body" style="text-align:center">
-<p>권한 없음</p>
-<a th:href="@{list}">로그인 페이지로 이동</a>
+	<div class="page-body" style="text-align:center">
+		<p>권한 없음</p>
+		<a th:href="@{list}">로그인 페이지로 이동</a>
+	</div>
 
-</div>
-		<div class="panel-footer">
-			<div class="text-center">Copyrights 2017 PICKDATA</div>
-		</div>
+	<div id="footer">
+		<div class="text-center">Copyrights 2017 PICKDATA</div>
+	</div>
   </body>
-  
+</html>
   
   
   
