@@ -64,8 +64,8 @@
 				<td class="type03-div-left">
 		<!-- 검색 -->
 					<select class="selectBox02" id='searchType'>
-						<option value='i' th:selected="${pageVO.type} == 'i'">Id</option>
-						<option value='t' th:selected="${pageVO.type} == 't'">Target</option>
+						<option value='i' th:selected="${pageVO.type} == 'i'">고객번호</option>
+						<option value='t' th:selected="${pageVO.type} == 't'">예측결과</option>
 					</select>
 					<input class="selectBox" type="text" id="searchKeyword" th:value="${pageVO.keyword}">
 					<button class="type03" id="searchBtn">검색</button>
