@@ -21,8 +21,20 @@
 	<div class="panel-heading">error</div>
 
 	<div class="panel-body">
+			<div class="container error-406">
+				<h1>406 error</h1>
+				<h1 th:text="${status}">Status</h1>
+				<h3>죄송합니다. 요청을 처리하는 중에 문제가 발생했습니다.</h3>
 
-<h1>406 error</h1>
+				<div>
+					<label>Exception name</label>
+					<div th:text="${error}"></div>
+				</div>
+				<p>
+					<a class="label label-default" th:href="@{list}">처음으로</a> <br>
+				</p>
+
+			</div>
 		
 	</div>
 
